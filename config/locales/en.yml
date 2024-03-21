@@ -1,4 +1,7 @@
 en:
+  users:
+    notifications:
+      tag_notif: "You have been tagged by %{user} in the thread"
   edit: "Edit"
   show: "Show"
   delete: "Delete"
