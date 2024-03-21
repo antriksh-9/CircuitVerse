@@ -30,7 +30,6 @@ class User < ApplicationRecord
   # noticed configuration
   has_many :noticed_notifications, as: :recipient, dependent: :destroy
 
-
   # Multiple push_subscriptions over many devices
   has_many :push_subscriptions, dependent: :destroy
 
