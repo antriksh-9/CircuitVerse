@@ -113,7 +113,9 @@ gem "jsonapi-serializer"
 gem "jwt"
 gem "rails-i18n", "~> 7.0.3"
 gem "recaptcha"
-gem "simple_discussion", github: "CircuitVerse/simple_discussion"
+
+gem "simple_discussion", github: "CircuitVerse/simple_discussion", branch: "new-feature"
+
 gem "sprockets", "~> 4.1"
 gem "strong_migrations"
 gem 'rails-data-migrations'
