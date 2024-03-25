@@ -12,6 +12,9 @@ module SearchHelper
       # Project query
       return ProjectsQuery.new(query_params, Project.public_and_not_forked).results,
        "/projects/search"
+    when "Forum"
+      # Forum query
+      return ForumThread.where("title LIKE ?", "%#{query_params}%"), "/forum/search"    
     end
   end
 end
