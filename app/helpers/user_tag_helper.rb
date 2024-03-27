@@ -4,7 +4,7 @@ module UserTagHelper
 
     def preprocess(document)
       # Parse user mentions and replace them with links to user profiles
-      document.gsub!(/@(\w+)/) do |match|
+      document.gsub!(/@([\w\s]+)/) do |match|
         username = $1
         user = User.find_by(name: username)
         if user
