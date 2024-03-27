@@ -1,0 +1,26 @@
+<% if @results.empty? %>
+  <div class="container search-no-results-container">
+    <div class="row center-row">
+      <div class="col-12">
+        <div class="search-no-results-image">
+          <%= image_tag "SVGs/noResult.svg", alt: "No result image" %>
+          <h6><%= t("projects.search.no_result_found") %></h6>
+        </div>
+      </div>
+    </div>
+  </div>
+<% else %>
+  <div class="container search-container">
+    <% @results.each do |forum_thread| %>
+      <div class="row center-row search-forum-thread-container">
+        <div class="col-12">
+          <h4><%= link_to forum_thread.title, simple_discussion.forum_thread_path(forum_thread) %></h4>
+          <p><%= truncate(forum_thread.body, length: 100) %></p>
+          <p><%= t("forum.search.created_by", username: forum_thread.user.name) %> • <%= time_ago_in_words(forum_thread.created_at) %> <%= t("ago") %></p>
+          <hr class="search-horizontal-rule">
+        </div>
+      </div>
+    <% end %>
+    <%= will_paginate(@forum_threads, renderer: SearchPaginateRenderer) %>
+  </div>
+<% end %>
