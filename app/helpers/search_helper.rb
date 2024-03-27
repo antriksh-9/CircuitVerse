@@ -14,7 +14,7 @@ module SearchHelper
        "/projects/search"
     when "Forum"
       # Forum query
-      return ForumThread.where("title LIKE ?", "%#{query_params}%"), "/forum/search"    
+      return ForumThread.search_by_title(query_params), "/forum/search"     
     end
   end
 end
