@@ -38,6 +38,8 @@ class NotifyUser
         Result.new("true", "forum_comment", @thread, @post.id)
       when "ForumThreadNotification"
         Result.new("true", "forum_thread", @thread)
+      when "TagNotification" # Add this case for handling tag notifications
+        Result.new("true", "tag", @tagged_user_id, @tagged_user_name)
       else
         Result.new("false", "no_type", root_path)
       end
